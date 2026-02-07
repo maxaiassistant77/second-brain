@@ -20,11 +20,6 @@ export function SearchBar() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        inputRef.current?.focus();
-        setIsOpen(true);
-      }
       if (e.key === 'Escape') {
         setIsOpen(false);
         setQuery('');

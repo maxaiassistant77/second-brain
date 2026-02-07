@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Providers } from "@/components/Providers";
+import { getDocuments } from "@/lib/documents";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,12 +24,20 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const documents = getDocuments().map(d => ({
+    slug: d.slug,
+    title: d.title,
+    folder: d.folder,
+  }));
+
   return (
     <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-[#0a0a0f] text-zinc-100 antialiased`}
       >
-        {children}
+        <Providers documents={documents}>
+          {children}
+        </Providers>
       </body>
     </html>
   );
