@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import { ToastProvider } from './Toast';
 import { CommandPalette } from './CommandPalette';
 import { KeyboardShortcuts } from './KeyboardShortcuts';
+import { QuickTip } from './QuickTip';
 
 interface ProvidersProps {
   children: ReactNode;
@@ -16,6 +17,7 @@ export function Providers({ children, documents = [] }: ProvidersProps) {
       <KeyboardShortcuts />
       {children}
       <CommandPalette documents={documents} />
+      <QuickTip />
     </ToastProvider>
   );
 }

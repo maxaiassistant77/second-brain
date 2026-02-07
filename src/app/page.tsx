@@ -7,7 +7,7 @@ import { LifeScoreDashboard } from '@/components/LifeScoreDashboard';
 import { ProjectsBoard } from '@/components/ProjectsBoard';
 import { IdeasInbox } from '@/components/IdeasInbox';
 import { YouTubePipeline } from '@/components/YouTubePipeline';
-import { SearchBar } from '@/components/SearchBar';
+import { DashboardHeader } from '@/components/DashboardHeader';
 import Link from 'next/link';
 
 export const dynamic = 'force-dynamic';
@@ -35,19 +35,7 @@ export default function Home() {
       <main className="flex-1 overflow-y-auto">
         <div className="max-w-7xl mx-auto px-8 py-8">
           {/* Header */}
-          <div className="flex items-center justify-between mb-8">
-            <div>
-              <h1 className="text-2xl font-bold text-zinc-100">
-                Dashboard
-              </h1>
-              <p className="text-sm text-zinc-500 mt-1">
-                {new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
-              </p>
-            </div>
-            <div className="w-64">
-              <SearchBar />
-            </div>
-          </div>
+          <DashboardHeader />
 
           {/* Top Row: Life Score + Activity */}
           <div className="grid grid-cols-12 gap-6 mb-6">
